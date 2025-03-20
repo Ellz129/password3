@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .container {
+            background-color: black;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        input[type="password"] {
+            width: 80%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Enter Password to Access the Site</h2>
+    <form id="passwordForm">
+        <input type="password" id="password" placeholder="Enter your password" required>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <div id="errorMessage" class="error"></div>
+</div>
+
+<script>
+    // Define the correct password (you can change this password)
+    const correctPassword = "Segrid";  // Change this password 
+
+    document.getElementById("passwordForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+        const enteredPassword = document.getElementById("password").value;
+        const errorMessageDiv = document.getElementById("errorMessage");
+
+        if (enteredPassword === correctPassword) {
+            // Redirect to your Google Site or protected content page
+            window.location.href = "https://sites.google.com/view/debatehub/user-profiles";  // Replace with your Google Site's URL 
+        } else {
+            errorMessageDiv.textContent = "Incorrect password. Please try again.";
+        }
+    });
+</script>
+
+</body>
+</html>
